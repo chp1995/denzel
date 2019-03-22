@@ -43,13 +43,13 @@ const queryType = new GraphQLObjectType({
                 return {total:movies.length,status:200};
             }
         },
-        movies: {
+        movie: {
             type: movieType,
             resolve: function (source, args) {
                 return awesome[randomNum(0,2)];
             }
         },
-        movie: {
+        movies: {
             type: movieType,
             args: {
                 id: { type: GraphQLString }
@@ -76,10 +76,6 @@ const queryType = new GraphQLObjectType({
                 for (m of movies){
                     if (m.metascore>=metascore0 && i<5){
                         movie1.push(m);
-                        console.log("________");
-                        console.log(m.metascore);
-                        console.log(metascore0);
-                        console.log(i);
                         i=i+1;
                     }
                 }
